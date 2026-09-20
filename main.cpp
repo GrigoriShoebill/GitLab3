@@ -4,6 +4,6 @@ using namespace std;
 
 int main(int argc, char *argv[]){
 	cout << "Hello world!!!" << endl;
-	cout << random_cow() << endl;
+	inp_num();
 	return 0;
 }

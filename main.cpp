@@ -1,6 +1,5 @@
-#include <iostream>
-#include <string>   // Для to_string()
 #include "R.h"
+#include <iostream>
 using namespace std;
 
 int main(int argc, char *argv[]){

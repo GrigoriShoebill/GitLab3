@@ -11,7 +11,6 @@ int random_cow(){
 	while((num%10 == num/10%10) || (num%10 == num/100%10) || (num%10 == num/1000%10) || (num/10%10 == num/100%10) || (num/10%10 == num/1000%10) || (num/100%10 == num/1000%10)){
 		num = rand()%9000 + 1000;
 	}
-	cout << num;
 	return num;
 }
 int prov(int tvoe, int random_num_cow){
@@ -25,19 +24,22 @@ int prov(int tvoe, int random_num_cow){
 			cow+=1;
 		}
 	}
-	if(bik==4){return 1;}
+	if(bik==4){cout << "YOU WIN!!!"<<endl;;return 0;}
 	else{
 		if(bik!=0){cout<<"bik:"<<bik;}
 		if(cow!=0){cout<<" cow:"<<cow;}
 		cout<<endl;
 	}
-	return 0;
+	return 1;
 }
 void inp_num(){
 	int num;
-	cin >> num;
-	if(num>9999 || num<1000 || (num%10 == num/10%10) || (num%10 == num/100%10) || (num%10 == num/1000%10) || (num/10%10 == num/100%10) || (num/10%10 == num/1000%10) || (num/100%10 == num/1000%10)){cout << "Некоректная форма" << endl;}
-	else{
-		prov(num, random_cow());
-	}
+	int cow_num = random_cow();
+	int flag = 1;
+	do{
+		cin >> num;
+		if(num>9999 || num<1000 || (num%10 == num/10%10) || (num%10 == num/100%10) || (num%10 == num/1000%10) || (num/10%10 == num/100%10) || (num/10%10 == num/1000%10) || (num/100%10 == num/1000%10)){cout << "Некоректная форма" << endl;}	
+		else{cout << cow_num << " ";
+		flag = prov(num, cow_num);}
+	}while(flag);
 }
